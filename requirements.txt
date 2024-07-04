@@ -1,9 +1,0 @@
-numpy==1.26.2
-prophet
-streamlit
-pandas
-plotly
-openpyxl
-scikit-learn
-joblib
-xgboost
