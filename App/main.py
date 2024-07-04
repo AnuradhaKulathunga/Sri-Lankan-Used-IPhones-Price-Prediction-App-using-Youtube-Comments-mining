@@ -11,14 +11,14 @@ import xgboost as xgb
 
 # Load data
 
-phone_dict_path = "/mount/src/sri-lankan-used-iphones-price-prediction-app/Sri Lankan Used IPhones Price Prediction App using Youtube Comments mining/Dictionaries_TextBlob/Sort_Encodes_Phones_dict.json"
-full_data_path = "/mount/src/sri-lankan-used-iphones-price-prediction-app/Sri Lankan Used IPhones Price Prediction App using Youtube Comments mining/Full_Data_FbProphet_Sentiments_v2.xlsx"
-cleaned_phone_options_path = "/mount/src/sri-lankan-used-iphones-price-prediction-app/Sri Lankan Used IPhones Price Prediction App using Youtube Comments mining/Phone_Default_Details/Cleaned_phone_options_df.xlsx"
-scaler_path = '/mount/src/sri-lankan-used-iphones-price-prediction-app/Sri Lankan Used IPhones Price Prediction App using Youtube Comments mining/Price_Predict_XGBBOOST/scaler_X.pkl'
-model_path = '/mount/src/sri-lankan-used-iphones-price-prediction-app/Sri Lankan Used IPhones Price Prediction App using Youtube Comments mining/Price_Predict_XGBBOOST/best_xgb_params.pkl'
-onehot_path = '/mount/src/sri-lankan-used-iphones-price-prediction-app/Sri Lankan Used IPhones Price Prediction App using Youtube Comments mining/Price_Predict_XGBBOOST/onehotencoder.pkl'
-phone_storages_path = '/mount/src/sri-lankan-used-iphones-price-prediction-app/Sri Lankan Used IPhones Price Prediction App using Youtube Comments mining/Phone_Default_Details/F_Phone_storages.xlsx'
-phone_colours_path = '/mount/src/sri-lankan-used-iphones-price-prediction-app/Sri Lankan Used IPhones Price Prediction App using Youtube Comments mining/Phone_Default_Details/F_Phone_colours.xlsx'
+phone_dict_path = "/mount/src/sri-lankan-used-iphones-price-prediction-app/App/Dictionaries_TextBlob/Sort_Encodes_Phones_dict.json"
+full_data_path = "/mount/src/sri-lankan-used-iphones-price-prediction-app/App/Full_Data_FbProphet_Sentiments_v2.xlsx"
+cleaned_phone_options_path = "/mount/src/sri-lankan-used-iphones-price-prediction-app/App/Phone_Default_Details/Cleaned_phone_options_df.xlsx"
+scaler_path = '/mount/src/sri-lankan-used-iphones-price-prediction-app/App/Price_Predict_XGBBOOST/scaler_X.pkl'
+model_path = '/mount/src/sri-lankan-used-iphones-price-prediction-app/App/Price_Predict_XGBBOOST/best_xgb_params.pkl'
+onehot_path = '/mount/src/sri-lankan-used-iphones-price-prediction-app/App/Price_Predict_XGBBOOST/onehotencoder.pkl'
+phone_storages_path = '/mount/src/sri-lankan-used-iphones-price-prediction-app/App/Phone_Default_Details/F_Phone_storages.xlsx'
+phone_colours_path = '/mount/src/sri-lankan-used-iphones-price-prediction-app/App/Phone_Default_Details/F_Phone_colours.xlsx'
 
 phone_options_df = pd.read_excel(cleaned_phone_options_path)
 phone_storages =  pd.read_excel(phone_storages_path)
@@ -97,7 +97,7 @@ def predict_sentiment(df, phone):
     df['Date'] = pd.to_datetime(df['Date'])
     future_dates = df[['Date']].rename(columns={'Date': 'ds'})
 
-    models_path = f'/mount/src/sri-lankan-used-iphones-price-prediction-app/Sri Lankan Used IPhones Price Prediction App using Youtube Comments mining/FbProphet_models_Sentiment_forcasting/{phone}'
+    models_path = f'/mount/src/sri-lankan-used-iphones-price-prediction-app/App/FbProphet_models_Sentiment_forcasting/{phone}'
     positive_model = joblib.load(os.path.join(models_path, f'{phone}_Positive.joblib'))
     negative_model = joblib.load(os.path.join(models_path, f'{phone}_Negative.joblib'))
 
